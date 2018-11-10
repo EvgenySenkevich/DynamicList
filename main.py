@@ -32,11 +32,15 @@ class DynArray:
         self.array[self.count] = itm
         self.count += 1
 
-    def insert(self, i, itm):
-        if self.count == self.capasity:
-            self.resize(2*self.capasity)
-        self.array[i] = itm
-        self.count +=1
+    def insert(self, j, itm):
+        new_array = self.array
+        self.array = self.make_array(self.capasity)
+        count = self.count
+        self.count = 0
+        for i in range(count):
+            if i == j:
+                self.append(itm)
+            self.append(new_array[i])
 
     def delete(self, j):
         new_array = self.array
@@ -55,6 +59,9 @@ if __name__ == "__main__":
     da.append(1)
     da.append(2)
     da.append(3)
-    da.delete(10)
+    da.append(3)
+    da.append(3)
+    da.append(3)
+    da.insert(20, 10)
     for i in range(0, len(da)):
         print(da[i])

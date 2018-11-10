@@ -23,8 +23,10 @@ class TestList(unittest.TestCase):
         dy.append(1)
         dy.append(1)
         dy.append(1)
-        dy.insert(10, 1)
-        self.assertEqual(dy.count, 3)
+        dy.insert(10, 3)
+        for i in range(len(dy)):
+            self.assertNotEqual(dy[i], 3)
+            self.assertEqual(dy[i], 1)
 
     def test_delete(self):
         dy = main.DynArray()
