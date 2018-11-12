@@ -29,8 +29,7 @@ class DynArray:
     def append(self, itm):
         if self.count == self.capasity:
             self.resize(2*self.capasity)
-        self.array[self.count] = itm
-        self.count += 1
+        self.insert(self.count, itm)
 
     def insert(self, j, itm):
         if self.count == self.capasity:
@@ -67,7 +66,5 @@ if __name__ == "__main__":
     da.append(3)
     da.append(4)
     da.append(5)
-    da.append(6)
-    da.insert(10, 10)
     for i in range(0, len(da)):
         print(da[i])
